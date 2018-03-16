@@ -46,6 +46,21 @@ export default {
               title: '粉丝列表'
             }
           ]
+        },
+        {
+          icon: 'el-icon-document',
+          index: '2',
+          title: '神创图',
+          subs: [
+            {
+              index: '/ohmygod',
+              title: '上帝配置'
+            },
+            {
+              index: '/attribute',
+              title: '属性列表'
+            }
+          ]
         }
       ]
     }

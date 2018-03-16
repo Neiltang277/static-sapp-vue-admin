@@ -2,14 +2,23 @@ import axios from 'axios'
 
 // const base = 'http://wx.blissr.cc'
 const base = process.env.API_ROOT
-const czjs = '/czjs'
+const godsServer = 'http://a-daily.qinshou.me'
 const api = {
   action: {
-    getGiftStatus: base + czjs + '/admin/v1/getGiftStatus',
-    getUserList: base + czjs + '/admin/v1/getUserList',
-    getLuckyList: base + czjs + '/admin/v1/getLuckyList',
-    getDetailList: base + czjs + '/admin/v1/getDetailList',
-    getCategoryList: base + czjs + '/admin/v1/getCategoryList'
+    getGiftStatus: base + '/czjs/admin/v1/getGiftStatus',
+    getUserList: base + '/czjs/admin/v1/getUserList',
+    getLuckyList: base + '/czjs/admin/v1/getLuckyList',
+    getDetailList: base + '/czjs/admin/v1/getDetailList',
+    getCategoryList: base + '/czjs/admin/v1/getCategoryList'
+  },
+  ohmygod: {
+    getAttributeList: godsServer + '/gods/destroyGodConfig'
+  }
+}
+
+const headers = {
+  czjs: {
+    'X-Admin': 'TUANJIENIUBI'
   }
 }
 
@@ -20,9 +29,7 @@ export default {
         pageSize: pageSize,
         current: current
       },
-      headers: {
-        'X-Admin': 'TUANJIENIUBI'
-      }
+      headers: headers.czjs
     })
   },
   getDetailList (pageSize, current) {
@@ -31,9 +38,7 @@ export default {
         pageSize: pageSize,
         current: current
       },
-      headers: {
-        'X-Admin': 'TUANJIENIUBI'
-      }
+      headers: headers.czjs
     })
   },
   getCategoryList (pageSize, current) {
@@ -42,9 +47,7 @@ export default {
         pageSize: pageSize,
         current: current
       },
-      headers: {
-        'X-Admin': 'TUANJIENIUBI'
-      }
+      headers: headers.czjs
     })
   },
   getUserList (pageSize, current) {
@@ -53,9 +56,7 @@ export default {
         pageSize: pageSize,
         current: current
       },
-      headers: {
-        'X-Admin': 'TUANJIENIUBI'
-      }
+      headers: headers.czjs
     })
   },
 
@@ -64,9 +65,13 @@ export default {
       params: {
         code: code
       },
-      headers: {
-        'X-Admin': 'TUANJIENIUBI'
-      }
+      headers: headers.czjs
+    })
+  },
+  // GODS
+  getAttributeList (pageSize, current) {
+    return axios.get(api.ohmygod.getAttributeList, {
+      debug: 1
     })
   }
 }

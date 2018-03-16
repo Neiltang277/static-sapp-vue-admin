@@ -32,6 +32,14 @@ export default new Router({
         {
           path: '/fans',
           component: resolve => require(['../components/page/Fans.vue'], resolve)
+        },
+        {
+          path: '/ohmygod',
+          component: resolve => require(['../components/page/God.vue'], resolve)
+        },
+        {
+          path: '/attribute',
+          component: resolve => require(['../components/page/Attribute.vue'], resolve)
         }
       ]
     },

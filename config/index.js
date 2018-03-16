@@ -6,11 +6,25 @@ const path = require('path')
 
 module.exports = {
   dev: {
-
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/api': {
+        target: 'http://a-daily.qinshou.me',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': 'http://a-daily.qinshou.me' //路径重写
+          }
+      },
+      '/loc': {
+        target: 'http://localhost:7001',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/loc': 'http://localhost:7001' //路径重写
+          }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
@@ -51,6 +65,23 @@ module.exports = {
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
+
+    proxyTable: {
+      '/api': {
+        target: 'http://a-daily.qinshou.me',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': 'http://a-daily.qinshou.me' //路径重写
+          }
+      },
+      '/loc': {
+        target: 'http://localhost:7001',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/loc': 'http://localhost:7001' //路径重写
+          }
+      }
+    },
 
     /**
      * Source Maps
