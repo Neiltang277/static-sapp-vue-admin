@@ -122,9 +122,6 @@ export default {
           current,
           classification,
           debug: 1
-        },
-        headers: {
-          'Access-Control-Allow-Origin': '*'
         }
       }).then(res => {
         this.results = res.data.content.result
@@ -199,7 +196,7 @@ export default {
         this.$axios.post(this.platform + '/gods/addGodConfig', {
           classification: this.form.classification,
           title: this.form.title,
-          options: options.substring(0, options.length - 1),
+          options: options,
           notes: this.form.notes
         }, {
           params: {
